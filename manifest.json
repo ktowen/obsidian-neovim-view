@@ -1,0 +1,9 @@
+{
+	"id": "neovim-view",
+	"name": "Neovim View",
+	"version": "0.0.1",
+	"minAppVersion": "1.13.0",
+	"description": "Edit notes in an embedded Neovim instance.",
+	"author": "ktowen_dev",
+	"isDesktopOnly": true
+}

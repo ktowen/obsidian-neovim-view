@@ -1,0 +1,35 @@
+# Push a tag equal to the manifest.json version (for example 0.1.0, no "v").
+# This creates a draft GitHub release with the files that Obsidian downloads.
+name: Release
+
+on:
+    push:
+        tags: ["*"]
+
+permissions:
+    contents: write
+    id-token: write
+    attestations: write
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+            - run: npm ci
+            - name: Tag must match manifest.json version
+              run: test "$GITHUB_REF_NAME" = "$(node -p 'require("./manifest.json").version')"
+            - run: npm run build
+            - name: Attest build provenance
+              uses: actions/attest@v4
+              with:
+                  subject-path: |
+                      main.js
+                      manifest.json
+                      styles.css
+            - run: gh release create "$GITHUB_REF_NAME" --draft --title "$GITHUB_REF_NAME" main.js manifest.json styles.css
+              env:
+                  GH_TOKEN: ${{ github.token }}
