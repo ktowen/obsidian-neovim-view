@@ -20,7 +20,7 @@ npx vitest run -t "<test name pattern>"    # single test
 
 - Integration tests (`*.integration.test.ts`, and a real-nvim scroll test in `grid.test.ts`) need `nvim` ≥ 0.10 in PATH; set `NVIM_BIN` to override.
 - Known flake (~1 in 30): fresh `nvim --embed --clean` sometimes shows a hit-enter prompt and requests block. The grid integration test retries.
-- Manual testing: checklist in `docs/manual-testing.md`. Test vault at `../obsidian-neovim-view-testvault` with this repo symlinked into `.obsidian/plugins/neovim-view`; reload by toggling the plugin.
+- Manual testing: checklist in `docs/manual-testing.md`. Test vault at `../obsidian-neovim-view-testvault` (create with `scripts/test-vault.sh`) with this repo symlinked into `.obsidian/plugins/neovim-view`; reload by toggling the plugin.
 - Release: bump `manifest.json` + `package.json` version, push a tag equal to it (no `v`); `.github/workflows/release.yml` creates a draft release.
 - Style: Prettier with tabs (see `.prettierrc.json` / `.editorconfig`).
 

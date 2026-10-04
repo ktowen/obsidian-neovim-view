@@ -5,7 +5,7 @@ Do them before a release, in the test vault, with the latest `npm run build`. Ke
 
 `Cmd` means Cmd on macOS and Ctrl on other systems, except where a check says macOS.
 
-Setup: the toggle command has no default hotkey. In Settings → Hotkeys, set "Toggle Neovim for current file" to `Cmd+Shift+E`.
+Setup: run `scripts/test-vault.sh` to create the test vault, then open it in Obsidian ("Open folder as vault"). The script links this repo as the plugin, enables it, sets the toggle hotkey to `Cmd+Shift+E` and copies this checklist into the vault as `Manual tests.md`.
 
 ## Open and close
 

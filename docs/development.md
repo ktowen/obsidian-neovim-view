@@ -25,7 +25,7 @@ npm run check     # format check + lint + type-check + tests (run before a commi
 ```
 
 - The integration tests need `nvim` in PATH. Set `NVIM_BIN` to use another binary.
-- Test vault: `../obsidian-neovim-view-testvault`. This repo is symlinked into its `.obsidian/plugins/neovim-view`.
+- Test vault: `scripts/test-vault.sh` creates `../obsidian-neovim-view-testvault`, with this repo symlinked into its `.obsidian/plugins/neovim-view`.
 - To reload the plugin: disable and enable it in Settings → Community plugins, or install `pjeby/hot-reload`.
 - Dev console: `Cmd+Opt+I`. Neovim stderr shows in the overlay when Neovim exits with an error.
 - Before a release, do the manual checks in [manual-testing.md](manual-testing.md).
